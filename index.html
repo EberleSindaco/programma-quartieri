@@ -4,7 +4,7 @@
 <body lang="en-NZ" link="#000080" vlink="#800000" dir="ltr"><p align="center" style="line-height: 100%; margin-top: 0.42cm; margin-bottom: 0.21cm; page-break-after: avoid">
 <body lang="en-NZ" link="#000080" vlink="#800000" dir="ltr"><p align="center" style="line-height: 100%; margin-top: 0.42cm; margin-bottom: 0.21cm; page-break-after: avoid">
 <font face="Liberation Sans, sans-serif"><font size="6" style="font-size: 20pt"><font color="#696969"><b>Info Point</b></font></font><font size="6" style="font-size: 20pt">🌍<br/><br/>
-</font><font size="6" style="font-size: 15pt" color="#0000FF">🎯 <b>Clicca sulle icone per conoscere <br/>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; il Programma di Cristiano Eberle 🚀</b><br/><br/>
+</font><font size="6" style="font-size: 15pt" color="#0000FF">🎯 <b>Muovi la mappa e Clicca sulle icone per conoscere <br/> il Programma di Cristiano Eberle 🚀</b><br/><br/>
 </font><font size="6" style="font-size: 15pt" color="#008000">👆🏿 <b>Clicca sui poligoni e cerchio per conoscere <br/>  i Temi del tuo Quartiere 💫</b></font></p>
     <div id="map">
     <head>
@@ -60,8 +60,8 @@
         <script src="data/Sport_18.js"></script>
         <script>
         var map = L.map('map', {
-            zoomControl:false, maxZoom:28, minZoom:1
-         }).fitBounds([[45.6685486751878997,11.3024683835009991],[45.7395533567998029,11.3830925621359995]]);
+            zoomControl:false, maxZoom:28, minZoom:5
+         }).fitBounds([[45.6685486751878997,11.3024683835009991],[45.7395533567998029,11.3830925621359995]], {animate: false,});
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
