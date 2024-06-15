@@ -1,12 +1,5 @@
 <!doctype html>
 <html lang="en">
-<body style="background-color: #95bef5;">
-<body lang="en-NZ" link="#000080" vlink="#800000" dir="ltr"><p align="center" style="line-height: 100%; margin-top: 0.42cm; margin-bottom: 0.21cm; page-break-after: avoid">
-<body lang="en-NZ" link="#000080" vlink="#800000" dir="ltr"><p align="center" style="line-height: 100%; margin-top: 0.42cm; margin-bottom: 0.21cm; page-break-after: avoid">
-<font face="Liberation Sans, sans-serif"><font size="6" style="font-size: 20pt"><font color="#696969"><b>Info Point</b></font></font><font size="6" style="font-size: 20pt">🌍<br/><br/>
-</font><font size="6" style="font-size: 15pt" color="#0000FF">🎯 <b>Clicca sulle icone per conoscere <br/>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; il Programma di Cristiano Eberle 🚀</b><br/><br/>
-</font><font size="6" style="font-size: 15pt" color="#008000">👆🏿 <b>Clicca sui poligoni e cerchio per conoscere <br/>  i Temi del tuo Quartiere 💫</b></font></p>
-    <div id="map">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,7 +56,7 @@
             zoomControl:false, maxZoom:28, minZoom:1
         }).fitBounds([[45.66732933156671,11.180500740470578],[45.79109890296025,11.509551279915604]]);
         var hash = new L.Hash(map);
-        map.attributionControl.setPrefix('');
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         // remove popup's row if "visible-with-data"
         function removeEmptyRowsFromPopupContent(content, feature) {
@@ -93,9 +86,9 @@
 				popup._contentNode.classList.remove('media');
 			}
 		}
-        //var zoomControl = L.control.zoom({
-        //    position: 'topleft'
-        //}).addTo(map);
+        var zoomControl = L.control.zoom({
+            position: 'topleft'
+        }).addTo(map);
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
@@ -104,7 +97,7 @@
         var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             pane: 'pane_OSMStandard_0',
             opacity: 1.0,
-            attribution: '<a></a>',
+            attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
             minZoom: 1,
             maxZoom: 28,
             minNativeZoom: 0,
