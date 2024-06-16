@@ -1,0 +1,1 @@
+var json_trento_3 = {"type":"FeatureCollection","name":"trento_3","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"fid":"1","etichetta":"Trento"},"geometry":{"type":"Point","coordinates":[11.120528037555776,46.06823156572414]}}]}

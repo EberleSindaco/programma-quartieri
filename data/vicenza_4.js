@@ -1,0 +1,1 @@
+var json_vicenza_4 = {"type":"FeatureCollection","name":"vicenza_4","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"fid":"1","etichetta":"Vicenza"},"geometry":{"type":"Point","coordinates":[11.544818471577971,45.551914203941543]}}]}
