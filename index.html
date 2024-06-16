@@ -44,21 +44,22 @@
         <script src="data/italia_istat_2.js"></script>
         <script src="data/trento_3.js"></script>
         <script src="data/vicenza_4.js"></script>
-        <script src="data/schio_cerchio_green_5.js"></script>
+        <script src="data/schio_cerchio_sfondo_5.js"></script>
         <script src="data/schio_cerchio_7.js"></script>
-        <script src="data/Quartieri_8.js"></script>
-        <script src="data/Diritti_9.js"></script>
+        <script src="data/mezzaluna_8.js"></script>
+        <script src="data/Quartieri_9.js"></script>
         <script src="data/Lavoro_10.js"></script>
-        <script src="data/Clima_11.js"></script>
+        <script src="data/Diritti_11.js"></script>
         <script src="data/Connessioni_12.js"></script>
         <script src="data/Parco_13.js"></script>
-        <script src="data/Benessere_14.js"></script>
-        <script src="data/FabbricaAlta_15.js"></script>
+        <script src="data/Clima_14.js"></script>
+        <script src="data/Sport_15.js"></script>
         <script src="data/Sapere_16.js"></script>
-        <script src="data/Sport_17.js"></script>
+        <script src="data/FabbricaAlta_17.js"></script>
+        <script src="data/Benessere_18.js"></script>
         <script>
         var map = L.map('map', {
-            zoomControl:false, maxZoom:28, minZoom:5
+            zoomControl:false, maxZoom:28, minZoom:1
         }).fitBounds([[45.6685486751878997,11.3024683835009991],[45.7395533567998029,11.3830925621359995]], {animate: false,});
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
@@ -320,7 +321,7 @@
         });
         bounds_group.addLayer(layer_vicenza_4);
         map.addLayer(layer_vicenza_4);
-        function pop_schio_cerchio_green_5(feature, layer) {
+        function pop_schio_cerchio_sfondo_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['proposte'] !== null ? autolinker.link(feature.properties['proposte'].toLocaleString()) : '') + '</td>\
@@ -333,30 +334,35 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_schio_cerchio_green_5_0() {
+        function style_schio_cerchio_sfondo_5_0() {
             return {
-                pane: 'pane_schio_cerchio_green_5',
-                stroke: false, 
+                pane: 'pane_schio_cerchio_sfondo_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(0,255,127,1.0)',
+                fillColor: 'rgba(72,169,242,1.0)',
                 interactive: false,
             }
         }
-        map.createPane('pane_schio_cerchio_green_5');
-        map.getPane('pane_schio_cerchio_green_5').style.zIndex = 405;
-        map.getPane('pane_schio_cerchio_green_5').style['mix-blend-mode'] = 'normal';
-        var layer_schio_cerchio_green_5 = new L.geoJson(json_schio_cerchio_green_5, {
+        map.createPane('pane_schio_cerchio_sfondo_5');
+        map.getPane('pane_schio_cerchio_sfondo_5').style.zIndex = 405;
+        map.getPane('pane_schio_cerchio_sfondo_5').style['mix-blend-mode'] = 'normal';
+        var layer_schio_cerchio_sfondo_5 = new L.geoJson(json_schio_cerchio_sfondo_5, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_schio_cerchio_green_5',
-            layerName: 'layer_schio_cerchio_green_5',
-            pane: 'pane_schio_cerchio_green_5',
-            onEachFeature: pop_schio_cerchio_green_5,
-            style: style_schio_cerchio_green_5_0,
+            dataVar: 'json_schio_cerchio_sfondo_5',
+            layerName: 'layer_schio_cerchio_sfondo_5',
+            pane: 'pane_schio_cerchio_sfondo_5',
+            onEachFeature: pop_schio_cerchio_sfondo_5,
+            style: style_schio_cerchio_sfondo_5_0,
         });
-        bounds_group.addLayer(layer_schio_cerchio_green_5);
-        map.addLayer(layer_schio_cerchio_green_5);
+        bounds_group.addLayer(layer_schio_cerchio_sfondo_5);
+        map.addLayer(layer_schio_cerchio_sfondo_5);
         map.createPane('pane_georeferenced_compressed_output_6');
         map.getPane('pane_georeferenced_compressed_output_6').style.zIndex = 406;
         var img_georeferenced_compressed_output_6 = 'data/georeferenced_compressed_output_6.png';
@@ -383,11 +389,11 @@
             return {
                 pane: 'pane_schio_cerchio_7',
                 opacity: 1,
-                color: 'rgba(2,48,32,1.0)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
                 fillOpacity: 0,
                 interactive: true,
             }
@@ -406,7 +412,47 @@
         });
         bounds_group.addLayer(layer_schio_cerchio_7);
         map.addLayer(layer_schio_cerchio_7);
-        function pop_Quartieri_8(feature, layer) {
+        function pop_mezzaluna_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_mezzaluna_8_0() {
+            return {
+                pane: 'pane_mezzaluna_8',
+                opacity: 1,
+                color: 'rgba(0,0,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_mezzaluna_8');
+        map.getPane('pane_mezzaluna_8').style.zIndex = 408;
+        map.getPane('pane_mezzaluna_8').style['mix-blend-mode'] = 'normal';
+        var layer_mezzaluna_8 = new L.geoJson(json_mezzaluna_8, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_mezzaluna_8',
+            layerName: 'layer_mezzaluna_8',
+            pane: 'pane_mezzaluna_8',
+            onEachFeature: pop_mezzaluna_8,
+            style: style_mezzaluna_8_0,
+        });
+        bounds_group.addLayer(layer_mezzaluna_8);
+        map.addLayer(layer_mezzaluna_8);
+        function pop_Quartieri_9(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['proposte'] !== null ? autolinker.link(feature.properties['proposte'].toLocaleString()) : '') + '</td>\
@@ -419,11 +465,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Quartieri_8_0(feature) {
+        function style_Quartieri_9_0(feature) {
             switch(String(feature.properties['etichette'])) {
                 case 'Centro':
                     return {
-                pane: 'pane_Quartieri_8',
+                pane: 'pane_Quartieri_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -438,7 +484,7 @@
                     break;
                 case 'Giavenale':
                     return {
-                pane: 'pane_Quartieri_8',
+                pane: 'pane_Quartieri_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -453,7 +499,7 @@
                     break;
                 case 'Magrè Mt.Magrè CàTrenta':
                     return {
-                pane: 'pane_Quartieri_8',
+                pane: 'pane_Quartieri_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -468,7 +514,7 @@
                     break;
                 case 'Santa Croce':
                     return {
-                pane: 'pane_Quartieri_8',
+                pane: 'pane_Quartieri_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -483,7 +529,7 @@
                     break;
                 case 'SS.Trinità Piane':
                     return {
-                pane: 'pane_Quartieri_8',
+                pane: 'pane_Quartieri_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -498,7 +544,7 @@
                     break;
                 case 'Stadio Poleo':
                     return {
-                pane: 'pane_Quartieri_8',
+                pane: 'pane_Quartieri_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -513,7 +559,7 @@
                     break;
                 case 'Tretto':
                     return {
-                pane: 'pane_Quartieri_8',
+                pane: 'pane_Quartieri_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -528,65 +574,20 @@
                     break;
             }
         }
-        map.createPane('pane_Quartieri_8');
-        map.getPane('pane_Quartieri_8').style.zIndex = 408;
-        map.getPane('pane_Quartieri_8').style['mix-blend-mode'] = 'normal';
-        var layer_Quartieri_8 = new L.geoJson(json_Quartieri_8, {
+        map.createPane('pane_Quartieri_9');
+        map.getPane('pane_Quartieri_9').style.zIndex = 409;
+        map.getPane('pane_Quartieri_9').style['mix-blend-mode'] = 'normal';
+        var layer_Quartieri_9 = new L.geoJson(json_Quartieri_9, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Quartieri_8',
-            layerName: 'layer_Quartieri_8',
-            pane: 'pane_Quartieri_8',
-            onEachFeature: pop_Quartieri_8,
-            style: style_Quartieri_8_0,
+            dataVar: 'json_Quartieri_9',
+            layerName: 'layer_Quartieri_9',
+            pane: 'pane_Quartieri_9',
+            onEachFeature: pop_Quartieri_9,
+            style: style_Quartieri_9_0,
         });
-        bounds_group.addLayer(layer_Quartieri_8);
-        map.addLayer(layer_Quartieri_8);
-        function pop_Diritti_9(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['text'] !== null ? autolinker.link(feature.properties['text'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_Diritti_9_0() {
-            return {
-                pane: 'pane_Diritti_9',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/Diritti_9.svg',
-            iconSize: [38.0, 38.0]
-        }),
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Diritti_9');
-        map.getPane('pane_Diritti_9').style.zIndex = 409;
-        map.getPane('pane_Diritti_9').style['mix-blend-mode'] = 'normal';
-        var layer_Diritti_9 = new L.geoJson(json_Diritti_9, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Diritti_9',
-            layerName: 'layer_Diritti_9',
-            pane: 'pane_Diritti_9',
-            onEachFeature: pop_Diritti_9,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_Diritti_9_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Diritti_9);
-        map.addLayer(layer_Diritti_9);
+        bounds_group.addLayer(layer_Quartieri_9);
+        map.addLayer(layer_Quartieri_9);
         function pop_Lavoro_10(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -632,7 +633,7 @@
         });
         bounds_group.addLayer(layer_Lavoro_10);
         map.addLayer(layer_Lavoro_10);
-        function pop_Clima_11(feature, layer) {
+        function pop_Diritti_11(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['text'] !== null ? autolinker.link(feature.properties['text'].toLocaleString()) : '') + '</td>\
@@ -645,38 +646,38 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Clima_11_0() {
+        function style_Diritti_11_0() {
             return {
-                pane: 'pane_Clima_11',
+                pane: 'pane_Diritti_11',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Clima_11.svg',
+            iconUrl: 'markers/Diritti_11.svg',
             iconSize: [38.0, 38.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Clima_11');
-        map.getPane('pane_Clima_11').style.zIndex = 411;
-        map.getPane('pane_Clima_11').style['mix-blend-mode'] = 'normal';
-        var layer_Clima_11 = new L.geoJson(json_Clima_11, {
+        map.createPane('pane_Diritti_11');
+        map.getPane('pane_Diritti_11').style.zIndex = 411;
+        map.getPane('pane_Diritti_11').style['mix-blend-mode'] = 'normal';
+        var layer_Diritti_11 = new L.geoJson(json_Diritti_11, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Clima_11',
-            layerName: 'layer_Clima_11',
-            pane: 'pane_Clima_11',
-            onEachFeature: pop_Clima_11,
+            dataVar: 'json_Diritti_11',
+            layerName: 'layer_Diritti_11',
+            pane: 'pane_Diritti_11',
+            onEachFeature: pop_Diritti_11,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Clima_11_0(feature));
+                return L.marker(latlng, style_Diritti_11_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Clima_11);
-        map.addLayer(layer_Clima_11);
+        bounds_group.addLayer(layer_Diritti_11);
+        map.addLayer(layer_Diritti_11);
         function pop_Connessioni_12(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -767,7 +768,7 @@
         });
         bounds_group.addLayer(layer_Parco_13);
         map.addLayer(layer_Parco_13);
-        function pop_Benessere_14(feature, layer) {
+        function pop_Clima_14(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['text'] !== null ? autolinker.link(feature.properties['text'].toLocaleString()) : '') + '</td>\
@@ -780,39 +781,39 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Benessere_14_0() {
+        function style_Clima_14_0() {
             return {
-                pane: 'pane_Benessere_14',
+                pane: 'pane_Clima_14',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Benessere_14.svg',
+            iconUrl: 'markers/Clima_14.svg',
             iconSize: [38.0, 38.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Benessere_14');
-        map.getPane('pane_Benessere_14').style.zIndex = 414;
-        map.getPane('pane_Benessere_14').style['mix-blend-mode'] = 'normal';
-        var layer_Benessere_14 = new L.geoJson(json_Benessere_14, {
+        map.createPane('pane_Clima_14');
+        map.getPane('pane_Clima_14').style.zIndex = 414;
+        map.getPane('pane_Clima_14').style['mix-blend-mode'] = 'normal';
+        var layer_Clima_14 = new L.geoJson(json_Clima_14, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Benessere_14',
-            layerName: 'layer_Benessere_14',
-            pane: 'pane_Benessere_14',
-            onEachFeature: pop_Benessere_14,
+            dataVar: 'json_Clima_14',
+            layerName: 'layer_Clima_14',
+            pane: 'pane_Clima_14',
+            onEachFeature: pop_Clima_14,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Benessere_14_0(feature));
+                return L.marker(latlng, style_Clima_14_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Benessere_14);
-        map.addLayer(layer_Benessere_14);
-        function pop_FabbricaAlta_15(feature, layer) {
+        bounds_group.addLayer(layer_Clima_14);
+        map.addLayer(layer_Clima_14);
+        function pop_Sport_15(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['text'] !== null ? autolinker.link(feature.properties['text'].toLocaleString()) : '') + '</td>\
@@ -825,38 +826,38 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_FabbricaAlta_15_0() {
+        function style_Sport_15_0() {
             return {
-                pane: 'pane_FabbricaAlta_15',
+                pane: 'pane_Sport_15',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/FabbricaAlta_15.svg',
+            iconUrl: 'markers/Sport_15.svg',
             iconSize: [38.0, 38.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_FabbricaAlta_15');
-        map.getPane('pane_FabbricaAlta_15').style.zIndex = 415;
-        map.getPane('pane_FabbricaAlta_15').style['mix-blend-mode'] = 'normal';
-        var layer_FabbricaAlta_15 = new L.geoJson(json_FabbricaAlta_15, {
+        map.createPane('pane_Sport_15');
+        map.getPane('pane_Sport_15').style.zIndex = 415;
+        map.getPane('pane_Sport_15').style['mix-blend-mode'] = 'normal';
+        var layer_Sport_15 = new L.geoJson(json_Sport_15, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_FabbricaAlta_15',
-            layerName: 'layer_FabbricaAlta_15',
-            pane: 'pane_FabbricaAlta_15',
-            onEachFeature: pop_FabbricaAlta_15,
+            dataVar: 'json_Sport_15',
+            layerName: 'layer_Sport_15',
+            pane: 'pane_Sport_15',
+            onEachFeature: pop_Sport_15,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_FabbricaAlta_15_0(feature));
+                return L.marker(latlng, style_Sport_15_0(feature));
             },
         });
-        bounds_group.addLayer(layer_FabbricaAlta_15);
-        map.addLayer(layer_FabbricaAlta_15);
+        bounds_group.addLayer(layer_Sport_15);
+        map.addLayer(layer_Sport_15);
         function pop_Sapere_16(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -902,7 +903,7 @@
         });
         bounds_group.addLayer(layer_Sapere_16);
         map.addLayer(layer_Sapere_16);
-        function pop_Sport_17(feature, layer) {
+        function pop_FabbricaAlta_17(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['text'] !== null ? autolinker.link(feature.properties['text'].toLocaleString()) : '') + '</td>\
@@ -915,58 +916,92 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Sport_17_0() {
+        function style_FabbricaAlta_17_0() {
             return {
-                pane: 'pane_Sport_17',
+                pane: 'pane_FabbricaAlta_17',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Sport_17.svg',
+            iconUrl: 'markers/FabbricaAlta_17.svg',
             iconSize: [38.0, 38.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Sport_17');
-        map.getPane('pane_Sport_17').style.zIndex = 417;
-        map.getPane('pane_Sport_17').style['mix-blend-mode'] = 'normal';
-        var layer_Sport_17 = new L.geoJson(json_Sport_17, {
+        map.createPane('pane_FabbricaAlta_17');
+        map.getPane('pane_FabbricaAlta_17').style.zIndex = 417;
+        map.getPane('pane_FabbricaAlta_17').style['mix-blend-mode'] = 'normal';
+        var layer_FabbricaAlta_17 = new L.geoJson(json_FabbricaAlta_17, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Sport_17',
-            layerName: 'layer_Sport_17',
-            pane: 'pane_Sport_17',
-            onEachFeature: pop_Sport_17,
+            dataVar: 'json_FabbricaAlta_17',
+            layerName: 'layer_FabbricaAlta_17',
+            pane: 'pane_FabbricaAlta_17',
+            onEachFeature: pop_FabbricaAlta_17,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Sport_17_0(feature));
+                return L.marker(latlng, style_FabbricaAlta_17_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Sport_17);
-        map.addLayer(layer_Sport_17);
+        bounds_group.addLayer(layer_FabbricaAlta_17);
+        map.addLayer(layer_FabbricaAlta_17);
+        function pop_Benessere_18(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['text'] !== null ? autolinker.link(feature.properties['text'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Benessere_18_0() {
+            return {
+                pane: 'pane_Benessere_18',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Benessere_18.svg',
+            iconSize: [38.0, 38.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Benessere_18');
+        map.getPane('pane_Benessere_18').style.zIndex = 418;
+        map.getPane('pane_Benessere_18').style['mix-blend-mode'] = 'normal';
+        var layer_Benessere_18 = new L.geoJson(json_Benessere_18, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Benessere_18',
+            layerName: 'layer_Benessere_18',
+            pane: 'pane_Benessere_18',
+            onEachFeature: pop_Benessere_18,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Benessere_18_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Benessere_18);
+        map.addLayer(layer_Benessere_18);
         map.on("zoomend", function(){
 
-                if (map.hasLayer(layer_Quartieri_8)) {
+                if (map.hasLayer(layer_Quartieri_9)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Quartieri_8.eachLayer(function (layer) {
+                        layer_Quartieri_9.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Quartieri_8.eachLayer(function (layer) {
-                            layer.closeTooltip();
-                        });
-                    }
-                }
-                if (map.hasLayer(layer_Diritti_9)) {
-                    if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Diritti_9.eachLayer(function (layer) {
-                            layer.openTooltip();
-                        });
-                    } else {
-                        layer_Diritti_9.eachLayer(function (layer) {
+                        layer_Quartieri_9.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
@@ -982,13 +1017,13 @@
                         });
                     }
                 }
-                if (map.hasLayer(layer_Clima_11)) {
+                if (map.hasLayer(layer_Diritti_11)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Clima_11.eachLayer(function (layer) {
+                        layer_Diritti_11.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Clima_11.eachLayer(function (layer) {
+                        layer_Diritti_11.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
@@ -1015,24 +1050,24 @@
                         });
                     }
                 }
-                if (map.hasLayer(layer_Benessere_14)) {
+                if (map.hasLayer(layer_Clima_14)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Benessere_14.eachLayer(function (layer) {
+                        layer_Clima_14.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Benessere_14.eachLayer(function (layer) {
+                        layer_Clima_14.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_FabbricaAlta_15)) {
+                if (map.hasLayer(layer_Sport_15)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_FabbricaAlta_15.eachLayer(function (layer) {
+                        layer_Sport_15.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_FabbricaAlta_15.eachLayer(function (layer) {
+                        layer_Sport_15.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
@@ -1048,13 +1083,24 @@
                         });
                     }
                 }
-                if (map.hasLayer(layer_Sport_17)) {
+                if (map.hasLayer(layer_FabbricaAlta_17)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Sport_17.eachLayer(function (layer) {
+                        layer_FabbricaAlta_17.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Sport_17.eachLayer(function (layer) {
+                        layer_FabbricaAlta_17.eachLayer(function (layer) {
+                            layer.closeTooltip();
+                        });
+                    }
+                }
+                if (map.hasLayer(layer_Benessere_18)) {
+                    if (map.getZoom() <= 11 && map.getZoom() >= 19) {
+                        layer_Benessere_18.eachLayer(function (layer) {
+                            layer.openTooltip();
+                        });
+                    } else {
+                        layer_Benessere_18.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
@@ -1087,24 +1133,13 @@
               addLabel(layer, i);
               i++;
         });
-                if (map.hasLayer(layer_Quartieri_8)) {
+                if (map.hasLayer(layer_Quartieri_9)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Quartieri_8.eachLayer(function (layer) {
+                        layer_Quartieri_9.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Quartieri_8.eachLayer(function (layer) {
-                            layer.closeTooltip();
-                        });
-                    }
-                }
-                if (map.hasLayer(layer_Diritti_9)) {
-                    if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Diritti_9.eachLayer(function (layer) {
-                            layer.openTooltip();
-                        });
-                    } else {
-                        layer_Diritti_9.eachLayer(function (layer) {
+                        layer_Quartieri_9.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
@@ -1120,13 +1155,13 @@
                         });
                     }
                 }
-                if (map.hasLayer(layer_Clima_11)) {
+                if (map.hasLayer(layer_Diritti_11)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Clima_11.eachLayer(function (layer) {
+                        layer_Diritti_11.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Clima_11.eachLayer(function (layer) {
+                        layer_Diritti_11.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
@@ -1153,24 +1188,24 @@
                         });
                     }
                 }
-                if (map.hasLayer(layer_Benessere_14)) {
+                if (map.hasLayer(layer_Clima_14)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Benessere_14.eachLayer(function (layer) {
+                        layer_Clima_14.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Benessere_14.eachLayer(function (layer) {
+                        layer_Clima_14.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_FabbricaAlta_15)) {
+                if (map.hasLayer(layer_Sport_15)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_FabbricaAlta_15.eachLayer(function (layer) {
+                        layer_Sport_15.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_FabbricaAlta_15.eachLayer(function (layer) {
+                        layer_Sport_15.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
@@ -1186,13 +1221,24 @@
                         });
                     }
                 }
-                if (map.hasLayer(layer_Sport_17)) {
+                if (map.hasLayer(layer_FabbricaAlta_17)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Sport_17.eachLayer(function (layer) {
+                        layer_FabbricaAlta_17.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Sport_17.eachLayer(function (layer) {
+                        layer_FabbricaAlta_17.eachLayer(function (layer) {
+                            layer.closeTooltip();
+                        });
+                    }
+                }
+                if (map.hasLayer(layer_Benessere_18)) {
+                    if (map.getZoom() <= 11 && map.getZoom() >= 19) {
+                        layer_Benessere_18.eachLayer(function (layer) {
+                            layer.openTooltip();
+                        });
+                    } else {
+                        layer_Benessere_18.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
@@ -1202,15 +1248,15 @@
                 return this._bounds;
             }
         });
-        resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_8,layer_Diritti_9,layer_Lavoro_10,layer_Clima_11,layer_Connessioni_12,layer_Parco_13,layer_Benessere_14,layer_FabbricaAlta_15,layer_Sapere_16,layer_Sport_17]);
+        resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_9,layer_Lavoro_10,layer_Diritti_11,layer_Connessioni_12,layer_Parco_13,layer_Clima_14,layer_Sport_15,layer_Sapere_16,layer_FabbricaAlta_17,layer_Benessere_18]);
         map.on("zoomend", function(){
-            resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_8,layer_Diritti_9,layer_Lavoro_10,layer_Clima_11,layer_Connessioni_12,layer_Parco_13,layer_Benessere_14,layer_FabbricaAlta_15,layer_Sapere_16,layer_Sport_17]);
+            resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_9,layer_Lavoro_10,layer_Diritti_11,layer_Connessioni_12,layer_Parco_13,layer_Clima_14,layer_Sport_15,layer_Sapere_16,layer_FabbricaAlta_17,layer_Benessere_18]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_8,layer_Diritti_9,layer_Lavoro_10,layer_Clima_11,layer_Connessioni_12,layer_Parco_13,layer_Benessere_14,layer_FabbricaAlta_15,layer_Sapere_16,layer_Sport_17]);
+            resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_9,layer_Lavoro_10,layer_Diritti_11,layer_Connessioni_12,layer_Parco_13,layer_Clima_14,layer_Sport_15,layer_Sapere_16,layer_FabbricaAlta_17,layer_Benessere_18]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_8,layer_Diritti_9,layer_Lavoro_10,layer_Clima_11,layer_Connessioni_12,layer_Parco_13,layer_Benessere_14,layer_FabbricaAlta_15,layer_Sapere_16,layer_Sport_17]);
+            resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_9,layer_Lavoro_10,layer_Diritti_11,layer_Connessioni_12,layer_Parco_13,layer_Clima_14,layer_Sport_15,layer_Sapere_16,layer_FabbricaAlta_17,layer_Benessere_18]);
         });
         </script>
     </body>

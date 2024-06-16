@@ -36,25 +36,25 @@
         <script src="js/labels.js"></script>
         <script src="data/italia_istat2_1.js"></script>
         <script src="data/italia_istat_2.js"></script>
-        <script src="data/altovicentino_dissolved3_3.js"></script>
-        <script src="data/trento_4.js"></script>
-        <script src="data/vicenza_5.js"></script>
-        <script src="data/schio_cerchio_green_6.js"></script>
-        <script src="data/schio_cerchio_8.js"></script>
+        <script src="data/trento_3.js"></script>
+        <script src="data/vicenza_4.js"></script>
+        <script src="data/schio_cerchio_sfondo_5.js"></script>
+        <script src="data/schio_cerchio_7.js"></script>
+        <script src="data/mezzaluna_8.js"></script>
         <script src="data/Quartieri_9.js"></script>
-        <script src="data/Diritti_10.js"></script>
-        <script src="data/Lavoro_11.js"></script>
-        <script src="data/Clima_12.js"></script>
-        <script src="data/Connessioni_13.js"></script>
-        <script src="data/Parco_14.js"></script>
-        <script src="data/Benessere_15.js"></script>
-        <script src="data/FabbricaAlta_16.js"></script>
-        <script src="data/Sapere_17.js"></script>
-        <script src="data/Sport_18.js"></script>
+        <script src="data/Lavoro_10.js"></script>
+        <script src="data/Diritti_11.js"></script>
+        <script src="data/Connessioni_12.js"></script>
+        <script src="data/Parco_13.js"></script>
+        <script src="data/Clima_14.js"></script>
+        <script src="data/Sport_15.js"></script>
+        <script src="data/Sapere_16.js"></script>
+        <script src="data/FabbricaAlta_17.js"></script>
+        <script src="data/Benessere_18.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[45.66732933156671,11.180500740470578],[45.79109890296025,11.509551279915604]]);
+        }).fitBounds([[45.66959548947333,11.219801877560847],[45.73190546633661,11.458920220418731]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -209,44 +209,7 @@
         });
         bounds_group.addLayer(layer_italia_istat_2);
         map.addLayer(layer_italia_istat_2);
-        function pop_altovicentino_dissolved3_3(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_altovicentino_dissolved3_3_0() {
-            return {
-                pane: 'pane_altovicentino_dissolved3_3',
-                stroke: false, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(135,206,235,0.8)',
-                interactive: false,
-            }
-        }
-        map.createPane('pane_altovicentino_dissolved3_3');
-        map.getPane('pane_altovicentino_dissolved3_3').style.zIndex = 403;
-        map.getPane('pane_altovicentino_dissolved3_3').style['mix-blend-mode'] = 'normal';
-        var layer_altovicentino_dissolved3_3 = new L.geoJson(json_altovicentino_dissolved3_3, {
-            attribution: '',
-            interactive: false,
-            dataVar: 'json_altovicentino_dissolved3_3',
-            layerName: 'layer_altovicentino_dissolved3_3',
-            pane: 'pane_altovicentino_dissolved3_3',
-            onEachFeature: pop_altovicentino_dissolved3_3,
-            style: style_altovicentino_dissolved3_3_0,
-        });
-        bounds_group.addLayer(layer_altovicentino_dissolved3_3);
-        map.addLayer(layer_altovicentino_dissolved3_3);
-        function pop_trento_4(feature, layer) {
+        function pop_trento_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
@@ -262,9 +225,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_trento_4_0() {
+        function style_trento_3_0() {
             return {
-                pane: 'pane_trento_4',
+                pane: 'pane_trento_3',
                 shape: 'triangle',
                 radius: 5.6,
                 opacity: 1,
@@ -279,27 +242,27 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_trento_4');
-        map.getPane('pane_trento_4').style.zIndex = 404;
-        map.getPane('pane_trento_4').style['mix-blend-mode'] = 'normal';
-        var layer_trento_4 = new L.geoJson(json_trento_4, {
+        map.createPane('pane_trento_3');
+        map.getPane('pane_trento_3').style.zIndex = 403;
+        map.getPane('pane_trento_3').style['mix-blend-mode'] = 'normal';
+        var layer_trento_3 = new L.geoJson(json_trento_3, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_trento_4',
-            layerName: 'layer_trento_4',
-            pane: 'pane_trento_4',
-            onEachFeature: pop_trento_4,
+            dataVar: 'json_trento_3',
+            layerName: 'layer_trento_3',
+            pane: 'pane_trento_3',
+            onEachFeature: pop_trento_3,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_trento_4_0(feature));
+                return L.shapeMarker(latlng, style_trento_3_0(feature));
             },
         });
-        bounds_group.addLayer(layer_trento_4);
-        map.addLayer(layer_trento_4);
-        function pop_vicenza_5(feature, layer) {
+        bounds_group.addLayer(layer_trento_3);
+        map.addLayer(layer_trento_3);
+        function pop_vicenza_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
@@ -315,9 +278,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_vicenza_5_0() {
+        function style_vicenza_4_0() {
             return {
-                pane: 'pane_vicenza_5',
+                pane: 'pane_vicenza_4',
                 shape: 'triangle',
                 radius: 5.6,
                 opacity: 1,
@@ -332,27 +295,27 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_vicenza_5');
-        map.getPane('pane_vicenza_5').style.zIndex = 405;
-        map.getPane('pane_vicenza_5').style['mix-blend-mode'] = 'normal';
-        var layer_vicenza_5 = new L.geoJson(json_vicenza_5, {
+        map.createPane('pane_vicenza_4');
+        map.getPane('pane_vicenza_4').style.zIndex = 404;
+        map.getPane('pane_vicenza_4').style['mix-blend-mode'] = 'normal';
+        var layer_vicenza_4 = new L.geoJson(json_vicenza_4, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_vicenza_5',
-            layerName: 'layer_vicenza_5',
-            pane: 'pane_vicenza_5',
-            onEachFeature: pop_vicenza_5,
+            dataVar: 'json_vicenza_4',
+            layerName: 'layer_vicenza_4',
+            pane: 'pane_vicenza_4',
+            onEachFeature: pop_vicenza_4,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_vicenza_5_0(feature));
+                return L.shapeMarker(latlng, style_vicenza_4_0(feature));
             },
         });
-        bounds_group.addLayer(layer_vicenza_5);
-        map.addLayer(layer_vicenza_5);
-        function pop_schio_cerchio_green_6(feature, layer) {
+        bounds_group.addLayer(layer_vicenza_4);
+        map.addLayer(layer_vicenza_4);
+        function pop_schio_cerchio_sfondo_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['proposte'] !== null ? autolinker.link(feature.properties['proposte'].toLocaleString()) : '') + '</td>\
@@ -365,40 +328,45 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_schio_cerchio_green_6_0() {
+        function style_schio_cerchio_sfondo_5_0() {
             return {
-                pane: 'pane_schio_cerchio_green_6',
-                stroke: false, 
+                pane: 'pane_schio_cerchio_sfondo_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(0,255,127,1.0)',
+                fillColor: 'rgba(72,169,242,1.0)',
                 interactive: false,
             }
         }
-        map.createPane('pane_schio_cerchio_green_6');
-        map.getPane('pane_schio_cerchio_green_6').style.zIndex = 406;
-        map.getPane('pane_schio_cerchio_green_6').style['mix-blend-mode'] = 'normal';
-        var layer_schio_cerchio_green_6 = new L.geoJson(json_schio_cerchio_green_6, {
+        map.createPane('pane_schio_cerchio_sfondo_5');
+        map.getPane('pane_schio_cerchio_sfondo_5').style.zIndex = 405;
+        map.getPane('pane_schio_cerchio_sfondo_5').style['mix-blend-mode'] = 'normal';
+        var layer_schio_cerchio_sfondo_5 = new L.geoJson(json_schio_cerchio_sfondo_5, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_schio_cerchio_green_6',
-            layerName: 'layer_schio_cerchio_green_6',
-            pane: 'pane_schio_cerchio_green_6',
-            onEachFeature: pop_schio_cerchio_green_6,
-            style: style_schio_cerchio_green_6_0,
+            dataVar: 'json_schio_cerchio_sfondo_5',
+            layerName: 'layer_schio_cerchio_sfondo_5',
+            pane: 'pane_schio_cerchio_sfondo_5',
+            onEachFeature: pop_schio_cerchio_sfondo_5,
+            style: style_schio_cerchio_sfondo_5_0,
         });
-        bounds_group.addLayer(layer_schio_cerchio_green_6);
-        map.addLayer(layer_schio_cerchio_green_6);
-        map.createPane('pane_georeferenced_compressed_output_7');
-        map.getPane('pane_georeferenced_compressed_output_7').style.zIndex = 407;
-        var img_georeferenced_compressed_output_7 = 'data/georeferenced_compressed_output_7.png';
-        var img_bounds_georeferenced_compressed_output_7 = [[45.69353207311416,11.2754354337288],[45.7120431353794,11.301842601354279]];
-        var layer_georeferenced_compressed_output_7 = new L.imageOverlay(img_georeferenced_compressed_output_7,
-                                              img_bounds_georeferenced_compressed_output_7,
-                                              {pane: 'pane_georeferenced_compressed_output_7'});
-        bounds_group.addLayer(layer_georeferenced_compressed_output_7);
-        map.addLayer(layer_georeferenced_compressed_output_7);
-        function pop_schio_cerchio_8(feature, layer) {
+        bounds_group.addLayer(layer_schio_cerchio_sfondo_5);
+        map.addLayer(layer_schio_cerchio_sfondo_5);
+        map.createPane('pane_georeferenced_compressed_output_6');
+        map.getPane('pane_georeferenced_compressed_output_6').style.zIndex = 406;
+        var img_georeferenced_compressed_output_6 = 'data/georeferenced_compressed_output_6.png';
+        var img_bounds_georeferenced_compressed_output_6 = [[45.69353207311416,11.2754354337288],[45.7120431353794,11.301842601354279]];
+        var layer_georeferenced_compressed_output_6 = new L.imageOverlay(img_georeferenced_compressed_output_6,
+                                              img_bounds_georeferenced_compressed_output_6,
+                                              {pane: 'pane_georeferenced_compressed_output_6'});
+        bounds_group.addLayer(layer_georeferenced_compressed_output_6);
+        map.addLayer(layer_georeferenced_compressed_output_6);
+        function pop_schio_cerchio_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['proposte'] !== null ? autolinker.link(feature.properties['proposte'].toLocaleString()) : '') + '</td>\
@@ -411,33 +379,73 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_schio_cerchio_8_0() {
+        function style_schio_cerchio_7_0() {
             return {
-                pane: 'pane_schio_cerchio_8',
+                pane: 'pane_schio_cerchio_7',
                 opacity: 1,
-                color: 'rgba(2,48,32,1.0)',
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_schio_cerchio_7');
+        map.getPane('pane_schio_cerchio_7').style.zIndex = 407;
+        map.getPane('pane_schio_cerchio_7').style['mix-blend-mode'] = 'normal';
+        var layer_schio_cerchio_7 = new L.geoJson(json_schio_cerchio_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_schio_cerchio_7',
+            layerName: 'layer_schio_cerchio_7',
+            pane: 'pane_schio_cerchio_7',
+            onEachFeature: pop_schio_cerchio_7,
+            style: style_schio_cerchio_7_0,
+        });
+        bounds_group.addLayer(layer_schio_cerchio_7);
+        map.addLayer(layer_schio_cerchio_7);
+        function pop_mezzaluna_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_mezzaluna_8_0() {
+            return {
+                pane: 'pane_mezzaluna_8',
+                opacity: 1,
+                color: 'rgba(0,0,255,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
         }
-        map.createPane('pane_schio_cerchio_8');
-        map.getPane('pane_schio_cerchio_8').style.zIndex = 408;
-        map.getPane('pane_schio_cerchio_8').style['mix-blend-mode'] = 'normal';
-        var layer_schio_cerchio_8 = new L.geoJson(json_schio_cerchio_8, {
+        map.createPane('pane_mezzaluna_8');
+        map.getPane('pane_mezzaluna_8').style.zIndex = 408;
+        map.getPane('pane_mezzaluna_8').style['mix-blend-mode'] = 'normal';
+        var layer_mezzaluna_8 = new L.geoJson(json_mezzaluna_8, {
             attribution: '',
-            interactive: true,
-            dataVar: 'json_schio_cerchio_8',
-            layerName: 'layer_schio_cerchio_8',
-            pane: 'pane_schio_cerchio_8',
-            onEachFeature: pop_schio_cerchio_8,
-            style: style_schio_cerchio_8_0,
+            interactive: false,
+            dataVar: 'json_mezzaluna_8',
+            layerName: 'layer_mezzaluna_8',
+            pane: 'pane_mezzaluna_8',
+            onEachFeature: pop_mezzaluna_8,
+            style: style_mezzaluna_8_0,
         });
-        bounds_group.addLayer(layer_schio_cerchio_8);
-        map.addLayer(layer_schio_cerchio_8);
+        bounds_group.addLayer(layer_mezzaluna_8);
+        map.addLayer(layer_mezzaluna_8);
         function pop_Quartieri_9(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -574,7 +582,7 @@
         });
         bounds_group.addLayer(layer_Quartieri_9);
         map.addLayer(layer_Quartieri_9);
-        function pop_Diritti_10(feature, layer) {
+        function pop_Lavoro_10(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['text'] !== null ? autolinker.link(feature.properties['text'].toLocaleString()) : '') + '</td>\
@@ -587,39 +595,39 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Diritti_10_0() {
+        function style_Lavoro_10_0() {
             return {
-                pane: 'pane_Diritti_10',
+                pane: 'pane_Lavoro_10',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Diritti_10.svg',
+            iconUrl: 'markers/Lavoro_10.svg',
             iconSize: [38.0, 38.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Diritti_10');
-        map.getPane('pane_Diritti_10').style.zIndex = 410;
-        map.getPane('pane_Diritti_10').style['mix-blend-mode'] = 'normal';
-        var layer_Diritti_10 = new L.geoJson(json_Diritti_10, {
+        map.createPane('pane_Lavoro_10');
+        map.getPane('pane_Lavoro_10').style.zIndex = 410;
+        map.getPane('pane_Lavoro_10').style['mix-blend-mode'] = 'normal';
+        var layer_Lavoro_10 = new L.geoJson(json_Lavoro_10, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Diritti_10',
-            layerName: 'layer_Diritti_10',
-            pane: 'pane_Diritti_10',
-            onEachFeature: pop_Diritti_10,
+            dataVar: 'json_Lavoro_10',
+            layerName: 'layer_Lavoro_10',
+            pane: 'pane_Lavoro_10',
+            onEachFeature: pop_Lavoro_10,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Diritti_10_0(feature));
+                return L.marker(latlng, style_Lavoro_10_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Diritti_10);
-        map.addLayer(layer_Diritti_10);
-        function pop_Lavoro_11(feature, layer) {
+        bounds_group.addLayer(layer_Lavoro_10);
+        map.addLayer(layer_Lavoro_10);
+        function pop_Diritti_11(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['text'] !== null ? autolinker.link(feature.properties['text'].toLocaleString()) : '') + '</td>\
@@ -632,39 +640,39 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Lavoro_11_0() {
+        function style_Diritti_11_0() {
             return {
-                pane: 'pane_Lavoro_11',
+                pane: 'pane_Diritti_11',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Lavoro_11.svg',
+            iconUrl: 'markers/Diritti_11.svg',
             iconSize: [38.0, 38.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Lavoro_11');
-        map.getPane('pane_Lavoro_11').style.zIndex = 411;
-        map.getPane('pane_Lavoro_11').style['mix-blend-mode'] = 'normal';
-        var layer_Lavoro_11 = new L.geoJson(json_Lavoro_11, {
+        map.createPane('pane_Diritti_11');
+        map.getPane('pane_Diritti_11').style.zIndex = 411;
+        map.getPane('pane_Diritti_11').style['mix-blend-mode'] = 'normal';
+        var layer_Diritti_11 = new L.geoJson(json_Diritti_11, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Lavoro_11',
-            layerName: 'layer_Lavoro_11',
-            pane: 'pane_Lavoro_11',
-            onEachFeature: pop_Lavoro_11,
+            dataVar: 'json_Diritti_11',
+            layerName: 'layer_Diritti_11',
+            pane: 'pane_Diritti_11',
+            onEachFeature: pop_Diritti_11,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Lavoro_11_0(feature));
+                return L.marker(latlng, style_Diritti_11_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Lavoro_11);
-        map.addLayer(layer_Lavoro_11);
-        function pop_Clima_12(feature, layer) {
+        bounds_group.addLayer(layer_Diritti_11);
+        map.addLayer(layer_Diritti_11);
+        function pop_Connessioni_12(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['text'] !== null ? autolinker.link(feature.properties['text'].toLocaleString()) : '') + '</td>\
@@ -677,39 +685,39 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Clima_12_0() {
+        function style_Connessioni_12_0() {
             return {
-                pane: 'pane_Clima_12',
+                pane: 'pane_Connessioni_12',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Clima_12.svg',
+            iconUrl: 'markers/Connessioni_12.svg',
             iconSize: [38.0, 38.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Clima_12');
-        map.getPane('pane_Clima_12').style.zIndex = 412;
-        map.getPane('pane_Clima_12').style['mix-blend-mode'] = 'normal';
-        var layer_Clima_12 = new L.geoJson(json_Clima_12, {
+        map.createPane('pane_Connessioni_12');
+        map.getPane('pane_Connessioni_12').style.zIndex = 412;
+        map.getPane('pane_Connessioni_12').style['mix-blend-mode'] = 'normal';
+        var layer_Connessioni_12 = new L.geoJson(json_Connessioni_12, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Clima_12',
-            layerName: 'layer_Clima_12',
-            pane: 'pane_Clima_12',
-            onEachFeature: pop_Clima_12,
+            dataVar: 'json_Connessioni_12',
+            layerName: 'layer_Connessioni_12',
+            pane: 'pane_Connessioni_12',
+            onEachFeature: pop_Connessioni_12,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Clima_12_0(feature));
+                return L.marker(latlng, style_Connessioni_12_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Clima_12);
-        map.addLayer(layer_Clima_12);
-        function pop_Connessioni_13(feature, layer) {
+        bounds_group.addLayer(layer_Connessioni_12);
+        map.addLayer(layer_Connessioni_12);
+        function pop_Parco_13(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['text'] !== null ? autolinker.link(feature.properties['text'].toLocaleString()) : '') + '</td>\
@@ -722,39 +730,39 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Connessioni_13_0() {
+        function style_Parco_13_0() {
             return {
-                pane: 'pane_Connessioni_13',
+                pane: 'pane_Parco_13',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Connessioni_13.svg',
+            iconUrl: 'markers/Parco_13.svg',
             iconSize: [38.0, 38.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Connessioni_13');
-        map.getPane('pane_Connessioni_13').style.zIndex = 413;
-        map.getPane('pane_Connessioni_13').style['mix-blend-mode'] = 'normal';
-        var layer_Connessioni_13 = new L.geoJson(json_Connessioni_13, {
+        map.createPane('pane_Parco_13');
+        map.getPane('pane_Parco_13').style.zIndex = 413;
+        map.getPane('pane_Parco_13').style['mix-blend-mode'] = 'normal';
+        var layer_Parco_13 = new L.geoJson(json_Parco_13, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Connessioni_13',
-            layerName: 'layer_Connessioni_13',
-            pane: 'pane_Connessioni_13',
-            onEachFeature: pop_Connessioni_13,
+            dataVar: 'json_Parco_13',
+            layerName: 'layer_Parco_13',
+            pane: 'pane_Parco_13',
+            onEachFeature: pop_Parco_13,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Connessioni_13_0(feature));
+                return L.marker(latlng, style_Parco_13_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Connessioni_13);
-        map.addLayer(layer_Connessioni_13);
-        function pop_Parco_14(feature, layer) {
+        bounds_group.addLayer(layer_Parco_13);
+        map.addLayer(layer_Parco_13);
+        function pop_Clima_14(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['text'] !== null ? autolinker.link(feature.properties['text'].toLocaleString()) : '') + '</td>\
@@ -767,39 +775,39 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Parco_14_0() {
+        function style_Clima_14_0() {
             return {
-                pane: 'pane_Parco_14',
+                pane: 'pane_Clima_14',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Parco_14.svg',
+            iconUrl: 'markers/Clima_14.svg',
             iconSize: [38.0, 38.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Parco_14');
-        map.getPane('pane_Parco_14').style.zIndex = 414;
-        map.getPane('pane_Parco_14').style['mix-blend-mode'] = 'normal';
-        var layer_Parco_14 = new L.geoJson(json_Parco_14, {
+        map.createPane('pane_Clima_14');
+        map.getPane('pane_Clima_14').style.zIndex = 414;
+        map.getPane('pane_Clima_14').style['mix-blend-mode'] = 'normal';
+        var layer_Clima_14 = new L.geoJson(json_Clima_14, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Parco_14',
-            layerName: 'layer_Parco_14',
-            pane: 'pane_Parco_14',
-            onEachFeature: pop_Parco_14,
+            dataVar: 'json_Clima_14',
+            layerName: 'layer_Clima_14',
+            pane: 'pane_Clima_14',
+            onEachFeature: pop_Clima_14,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Parco_14_0(feature));
+                return L.marker(latlng, style_Clima_14_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Parco_14);
-        map.addLayer(layer_Parco_14);
-        function pop_Benessere_15(feature, layer) {
+        bounds_group.addLayer(layer_Clima_14);
+        map.addLayer(layer_Clima_14);
+        function pop_Sport_15(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['text'] !== null ? autolinker.link(feature.properties['text'].toLocaleString()) : '') + '</td>\
@@ -812,39 +820,39 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Benessere_15_0() {
+        function style_Sport_15_0() {
             return {
-                pane: 'pane_Benessere_15',
+                pane: 'pane_Sport_15',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Benessere_15.svg',
+            iconUrl: 'markers/Sport_15.svg',
             iconSize: [38.0, 38.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Benessere_15');
-        map.getPane('pane_Benessere_15').style.zIndex = 415;
-        map.getPane('pane_Benessere_15').style['mix-blend-mode'] = 'normal';
-        var layer_Benessere_15 = new L.geoJson(json_Benessere_15, {
+        map.createPane('pane_Sport_15');
+        map.getPane('pane_Sport_15').style.zIndex = 415;
+        map.getPane('pane_Sport_15').style['mix-blend-mode'] = 'normal';
+        var layer_Sport_15 = new L.geoJson(json_Sport_15, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Benessere_15',
-            layerName: 'layer_Benessere_15',
-            pane: 'pane_Benessere_15',
-            onEachFeature: pop_Benessere_15,
+            dataVar: 'json_Sport_15',
+            layerName: 'layer_Sport_15',
+            pane: 'pane_Sport_15',
+            onEachFeature: pop_Sport_15,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Benessere_15_0(feature));
+                return L.marker(latlng, style_Sport_15_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Benessere_15);
-        map.addLayer(layer_Benessere_15);
-        function pop_FabbricaAlta_16(feature, layer) {
+        bounds_group.addLayer(layer_Sport_15);
+        map.addLayer(layer_Sport_15);
+        function pop_Sapere_16(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['text'] !== null ? autolinker.link(feature.properties['text'].toLocaleString()) : '') + '</td>\
@@ -857,39 +865,39 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_FabbricaAlta_16_0() {
+        function style_Sapere_16_0() {
             return {
-                pane: 'pane_FabbricaAlta_16',
+                pane: 'pane_Sapere_16',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/FabbricaAlta_16.svg',
+            iconUrl: 'markers/Sapere_16.svg',
             iconSize: [38.0, 38.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_FabbricaAlta_16');
-        map.getPane('pane_FabbricaAlta_16').style.zIndex = 416;
-        map.getPane('pane_FabbricaAlta_16').style['mix-blend-mode'] = 'normal';
-        var layer_FabbricaAlta_16 = new L.geoJson(json_FabbricaAlta_16, {
+        map.createPane('pane_Sapere_16');
+        map.getPane('pane_Sapere_16').style.zIndex = 416;
+        map.getPane('pane_Sapere_16').style['mix-blend-mode'] = 'normal';
+        var layer_Sapere_16 = new L.geoJson(json_Sapere_16, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_FabbricaAlta_16',
-            layerName: 'layer_FabbricaAlta_16',
-            pane: 'pane_FabbricaAlta_16',
-            onEachFeature: pop_FabbricaAlta_16,
+            dataVar: 'json_Sapere_16',
+            layerName: 'layer_Sapere_16',
+            pane: 'pane_Sapere_16',
+            onEachFeature: pop_Sapere_16,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_FabbricaAlta_16_0(feature));
+                return L.marker(latlng, style_Sapere_16_0(feature));
             },
         });
-        bounds_group.addLayer(layer_FabbricaAlta_16);
-        map.addLayer(layer_FabbricaAlta_16);
-        function pop_Sapere_17(feature, layer) {
+        bounds_group.addLayer(layer_Sapere_16);
+        map.addLayer(layer_Sapere_16);
+        function pop_FabbricaAlta_17(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['text'] !== null ? autolinker.link(feature.properties['text'].toLocaleString()) : '') + '</td>\
@@ -902,39 +910,39 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Sapere_17_0() {
+        function style_FabbricaAlta_17_0() {
             return {
-                pane: 'pane_Sapere_17',
+                pane: 'pane_FabbricaAlta_17',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Sapere_17.svg',
+            iconUrl: 'markers/FabbricaAlta_17.svg',
             iconSize: [38.0, 38.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Sapere_17');
-        map.getPane('pane_Sapere_17').style.zIndex = 417;
-        map.getPane('pane_Sapere_17').style['mix-blend-mode'] = 'normal';
-        var layer_Sapere_17 = new L.geoJson(json_Sapere_17, {
+        map.createPane('pane_FabbricaAlta_17');
+        map.getPane('pane_FabbricaAlta_17').style.zIndex = 417;
+        map.getPane('pane_FabbricaAlta_17').style['mix-blend-mode'] = 'normal';
+        var layer_FabbricaAlta_17 = new L.geoJson(json_FabbricaAlta_17, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Sapere_17',
-            layerName: 'layer_Sapere_17',
-            pane: 'pane_Sapere_17',
-            onEachFeature: pop_Sapere_17,
+            dataVar: 'json_FabbricaAlta_17',
+            layerName: 'layer_FabbricaAlta_17',
+            pane: 'pane_FabbricaAlta_17',
+            onEachFeature: pop_FabbricaAlta_17,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Sapere_17_0(feature));
+                return L.marker(latlng, style_FabbricaAlta_17_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Sapere_17);
-        map.addLayer(layer_Sapere_17);
-        function pop_Sport_18(feature, layer) {
+        bounds_group.addLayer(layer_FabbricaAlta_17);
+        map.addLayer(layer_FabbricaAlta_17);
+        function pop_Benessere_18(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['text'] !== null ? autolinker.link(feature.properties['text'].toLocaleString()) : '') + '</td>\
@@ -947,38 +955,38 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Sport_18_0() {
+        function style_Benessere_18_0() {
             return {
-                pane: 'pane_Sport_18',
+                pane: 'pane_Benessere_18',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Sport_18.svg',
+            iconUrl: 'markers/Benessere_18.svg',
             iconSize: [38.0, 38.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Sport_18');
-        map.getPane('pane_Sport_18').style.zIndex = 418;
-        map.getPane('pane_Sport_18').style['mix-blend-mode'] = 'normal';
-        var layer_Sport_18 = new L.geoJson(json_Sport_18, {
+        map.createPane('pane_Benessere_18');
+        map.getPane('pane_Benessere_18').style.zIndex = 418;
+        map.getPane('pane_Benessere_18').style['mix-blend-mode'] = 'normal';
+        var layer_Benessere_18 = new L.geoJson(json_Benessere_18, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Sport_18',
-            layerName: 'layer_Sport_18',
-            pane: 'pane_Sport_18',
-            onEachFeature: pop_Sport_18,
+            dataVar: 'json_Benessere_18',
+            layerName: 'layer_Benessere_18',
+            pane: 'pane_Benessere_18',
+            onEachFeature: pop_Benessere_18,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Sport_18_0(feature));
+                return L.marker(latlng, style_Benessere_18_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Sport_18);
-        map.addLayer(layer_Sport_18);
+        bounds_group.addLayer(layer_Benessere_18);
+        map.addLayer(layer_Benessere_18);
         map.on("zoomend", function(){
 
                 if (map.hasLayer(layer_Quartieri_9)) {
@@ -992,101 +1000,101 @@
                         });
                     }
                 }
-                if (map.hasLayer(layer_Diritti_10)) {
+                if (map.hasLayer(layer_Lavoro_10)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Diritti_10.eachLayer(function (layer) {
+                        layer_Lavoro_10.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Diritti_10.eachLayer(function (layer) {
+                        layer_Lavoro_10.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_Lavoro_11)) {
+                if (map.hasLayer(layer_Diritti_11)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Lavoro_11.eachLayer(function (layer) {
+                        layer_Diritti_11.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Lavoro_11.eachLayer(function (layer) {
+                        layer_Diritti_11.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_Clima_12)) {
+                if (map.hasLayer(layer_Connessioni_12)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Clima_12.eachLayer(function (layer) {
+                        layer_Connessioni_12.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Clima_12.eachLayer(function (layer) {
+                        layer_Connessioni_12.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_Connessioni_13)) {
+                if (map.hasLayer(layer_Parco_13)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Connessioni_13.eachLayer(function (layer) {
+                        layer_Parco_13.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Connessioni_13.eachLayer(function (layer) {
+                        layer_Parco_13.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_Parco_14)) {
+                if (map.hasLayer(layer_Clima_14)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Parco_14.eachLayer(function (layer) {
+                        layer_Clima_14.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Parco_14.eachLayer(function (layer) {
+                        layer_Clima_14.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_Benessere_15)) {
+                if (map.hasLayer(layer_Sport_15)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Benessere_15.eachLayer(function (layer) {
+                        layer_Sport_15.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Benessere_15.eachLayer(function (layer) {
+                        layer_Sport_15.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_FabbricaAlta_16)) {
+                if (map.hasLayer(layer_Sapere_16)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_FabbricaAlta_16.eachLayer(function (layer) {
+                        layer_Sapere_16.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_FabbricaAlta_16.eachLayer(function (layer) {
+                        layer_Sapere_16.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_Sapere_17)) {
+                if (map.hasLayer(layer_FabbricaAlta_17)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Sapere_17.eachLayer(function (layer) {
+                        layer_FabbricaAlta_17.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Sapere_17.eachLayer(function (layer) {
+                        layer_FabbricaAlta_17.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_Sport_18)) {
+                if (map.hasLayer(layer_Benessere_18)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Sport_18.eachLayer(function (layer) {
+                        layer_Benessere_18.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Sport_18.eachLayer(function (layer) {
+                        layer_Benessere_18.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
@@ -1094,12 +1102,12 @@
         });
         setBounds();
         var i = 0;
-        layer_trento_4.eachLayer(function(layer) {
+        layer_trento_3.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['etichetta'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['etichetta']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_trento_4'});
+            layer.bindTooltip((layer.feature.properties['etichetta'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['etichetta']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_trento_3'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -1107,129 +1115,12 @@
               i++;
         });
         var i = 0;
-        layer_vicenza_5.eachLayer(function(layer) {
+        layer_vicenza_4.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['etichetta'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['etichetta']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_vicenza_5'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        var i = 0;
-        layer_Diritti_10.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['etichette'] !== null?String('<div style="color: #0000ff; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['etichette']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Diritti_10'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        var i = 0;
-        layer_Lavoro_11.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['etichette'] !== null?String('<div style="color: #0000ff; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['etichette']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Lavoro_11'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        var i = 0;
-        layer_Clima_12.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['etichette'] !== null?String('<div style="color: #0000ff; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['etichette']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Clima_12'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        var i = 0;
-        layer_Connessioni_13.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['etichette'] !== null?String('<div style="color: #0000ff; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['etichette']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Connessioni_13'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        var i = 0;
-        layer_Parco_14.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['etichette'] !== null?String('<div style="color: #0000ff; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['etichette']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Parco_14'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        var i = 0;
-        layer_Benessere_15.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['etichette'] !== null?String('<div style="color: #0000ff; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['etichette']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Benessere_15'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        var i = 0;
-        layer_FabbricaAlta_16.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['etichette'] !== null?String('<div style="color: #0000ff; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['etichette']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_FabbricaAlta_16'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        var i = 0;
-        layer_Sapere_17.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['etichette'] !== null?String('<div style="color: #0000ff; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['etichette']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Sapere_17'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        var i = 0;
-        layer_Sport_18.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['etichette'] !== null?String('<div style="color: #0000ff; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['etichette']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Sport_18'});
+            layer.bindTooltip((layer.feature.properties['etichetta'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['etichetta']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_vicenza_4'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -1247,101 +1138,101 @@
                         });
                     }
                 }
-                if (map.hasLayer(layer_Diritti_10)) {
+                if (map.hasLayer(layer_Lavoro_10)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Diritti_10.eachLayer(function (layer) {
+                        layer_Lavoro_10.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Diritti_10.eachLayer(function (layer) {
+                        layer_Lavoro_10.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_Lavoro_11)) {
+                if (map.hasLayer(layer_Diritti_11)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Lavoro_11.eachLayer(function (layer) {
+                        layer_Diritti_11.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Lavoro_11.eachLayer(function (layer) {
+                        layer_Diritti_11.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_Clima_12)) {
+                if (map.hasLayer(layer_Connessioni_12)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Clima_12.eachLayer(function (layer) {
+                        layer_Connessioni_12.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Clima_12.eachLayer(function (layer) {
+                        layer_Connessioni_12.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_Connessioni_13)) {
+                if (map.hasLayer(layer_Parco_13)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Connessioni_13.eachLayer(function (layer) {
+                        layer_Parco_13.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Connessioni_13.eachLayer(function (layer) {
+                        layer_Parco_13.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_Parco_14)) {
+                if (map.hasLayer(layer_Clima_14)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Parco_14.eachLayer(function (layer) {
+                        layer_Clima_14.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Parco_14.eachLayer(function (layer) {
+                        layer_Clima_14.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_Benessere_15)) {
+                if (map.hasLayer(layer_Sport_15)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Benessere_15.eachLayer(function (layer) {
+                        layer_Sport_15.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Benessere_15.eachLayer(function (layer) {
+                        layer_Sport_15.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_FabbricaAlta_16)) {
+                if (map.hasLayer(layer_Sapere_16)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_FabbricaAlta_16.eachLayer(function (layer) {
+                        layer_Sapere_16.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_FabbricaAlta_16.eachLayer(function (layer) {
+                        layer_Sapere_16.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_Sapere_17)) {
+                if (map.hasLayer(layer_FabbricaAlta_17)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Sapere_17.eachLayer(function (layer) {
+                        layer_FabbricaAlta_17.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Sapere_17.eachLayer(function (layer) {
+                        layer_FabbricaAlta_17.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-                if (map.hasLayer(layer_Sport_18)) {
+                if (map.hasLayer(layer_Benessere_18)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
-                        layer_Sport_18.eachLayer(function (layer) {
+                        layer_Benessere_18.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_Sport_18.eachLayer(function (layer) {
+                        layer_Benessere_18.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
@@ -1351,15 +1242,15 @@
                 return this._bounds;
             }
         });
-        resetLabels([layer_trento_4,layer_vicenza_5,layer_Quartieri_9,layer_Diritti_10,layer_Lavoro_11,layer_Clima_12,layer_Connessioni_13,layer_Parco_14,layer_Benessere_15,layer_FabbricaAlta_16,layer_Sapere_17,layer_Sport_18]);
+        resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_9,layer_Lavoro_10,layer_Diritti_11,layer_Connessioni_12,layer_Parco_13,layer_Clima_14,layer_Sport_15,layer_Sapere_16,layer_FabbricaAlta_17,layer_Benessere_18]);
         map.on("zoomend", function(){
-            resetLabels([layer_trento_4,layer_vicenza_5,layer_Quartieri_9,layer_Diritti_10,layer_Lavoro_11,layer_Clima_12,layer_Connessioni_13,layer_Parco_14,layer_Benessere_15,layer_FabbricaAlta_16,layer_Sapere_17,layer_Sport_18]);
+            resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_9,layer_Lavoro_10,layer_Diritti_11,layer_Connessioni_12,layer_Parco_13,layer_Clima_14,layer_Sport_15,layer_Sapere_16,layer_FabbricaAlta_17,layer_Benessere_18]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_trento_4,layer_vicenza_5,layer_Quartieri_9,layer_Diritti_10,layer_Lavoro_11,layer_Clima_12,layer_Connessioni_13,layer_Parco_14,layer_Benessere_15,layer_FabbricaAlta_16,layer_Sapere_17,layer_Sport_18]);
+            resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_9,layer_Lavoro_10,layer_Diritti_11,layer_Connessioni_12,layer_Parco_13,layer_Clima_14,layer_Sport_15,layer_Sapere_16,layer_FabbricaAlta_17,layer_Benessere_18]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_trento_4,layer_vicenza_5,layer_Quartieri_9,layer_Diritti_10,layer_Lavoro_11,layer_Clima_12,layer_Connessioni_13,layer_Parco_14,layer_Benessere_15,layer_FabbricaAlta_16,layer_Sapere_17,layer_Sport_18]);
+            resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_9,layer_Lavoro_10,layer_Diritti_11,layer_Connessioni_12,layer_Parco_13,layer_Clima_14,layer_Sport_15,layer_Sapere_16,layer_FabbricaAlta_17,layer_Benessere_18]);
         });
         </script>
     </body>
