@@ -55,7 +55,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[45.70563299409026,11.286286751431154],[45.776162807509316,11.438638284739335]]);
+        }).fitBounds([[45.69079751024925,11.201364683699936],[45.7639427507338,11.482482871650317]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -1000,9 +1000,18 @@
 
         function style_centroids_quartieri_19_0() {
             return {
-                fill: false,
-                stroke: false,
-                interactive: false
+                pane: 'pane_centroids_quartieri_19',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(183,72,75,1.0)',
+                interactive: false,
             }
         }
         map.createPane('pane_centroids_quartieri_19');
