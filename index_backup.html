@@ -51,10 +51,11 @@
         <script src="data/Sapere_16.js"></script>
         <script src="data/FabbricaAlta_17.js"></script>
         <script src="data/Benessere_18.js"></script>
+        <script src="data/centroids_quartieri_19.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[45.66959548947333,11.219801877560847],[45.73190546633661,11.458920220418731]]);
+        }).fitBounds([[45.61857219841444,11.102041536976161],[45.806453737740256,11.507935222513781]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -491,7 +492,7 @@
                 interactive: true,
             }
                     break;
-                case 'Magrè Mt.Magrè CàTrenta':
+                case 'Magrè CàTrenta Mt.Magrè ':
                     return {
                 pane: 'pane_Quartieri_9',
                 opacity: 1,
@@ -506,7 +507,7 @@
                 interactive: true,
             }
                     break;
-                case 'Santa Croce':
+                case 'Poleo Stadio':
                     return {
                 pane: 'pane_Quartieri_9',
                 opacity: 1,
@@ -521,7 +522,7 @@
                 interactive: true,
             }
                     break;
-                case 'SS.Trinità Piane':
+                case 'S.Croce':
                     return {
                 pane: 'pane_Quartieri_9',
                 opacity: 1,
@@ -536,7 +537,7 @@
                 interactive: true,
             }
                     break;
-                case 'Stadio Poleo':
+                case 'SS.Trinità Piane':
                     return {
                 pane: 'pane_Quartieri_9',
                 opacity: 1,
@@ -987,6 +988,43 @@
         });
         bounds_group.addLayer(layer_Benessere_18);
         map.addLayer(layer_Benessere_18);
+        function pop_centroids_quartieri_19(feature, layer) {
+            var popupContent = '<table>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_centroids_quartieri_19_0() {
+            return {
+                fill: false,
+                stroke: false,
+                interactive: false
+            }
+        }
+        map.createPane('pane_centroids_quartieri_19');
+        map.getPane('pane_centroids_quartieri_19').style.zIndex = 419;
+        map.getPane('pane_centroids_quartieri_19').style['mix-blend-mode'] = 'normal';
+        var layer_centroids_quartieri_19 = new L.geoJson(json_centroids_quartieri_19, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_centroids_quartieri_19',
+            layerName: 'layer_centroids_quartieri_19',
+            pane: 'pane_centroids_quartieri_19',
+            onEachFeature: pop_centroids_quartieri_19,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_centroids_quartieri_19_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_centroids_quartieri_19);
+        map.addLayer(layer_centroids_quartieri_19);
         map.on("zoomend", function(){
 
                 if (map.hasLayer(layer_Quartieri_9)) {
@@ -1127,6 +1165,19 @@
               addLabel(layer, i);
               i++;
         });
+        var i = 0;
+        layer_centroids_quartieri_19.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['etichette'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['etichette']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_centroids_quartieri_19'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
                 if (map.hasLayer(layer_Quartieri_9)) {
                     if (map.getZoom() <= 11 && map.getZoom() >= 19) {
                         layer_Quartieri_9.eachLayer(function (layer) {
@@ -1242,15 +1293,15 @@
                 return this._bounds;
             }
         });
-        resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_9,layer_Lavoro_10,layer_Diritti_11,layer_Connessioni_12,layer_Parco_13,layer_Clima_14,layer_Sport_15,layer_Sapere_16,layer_FabbricaAlta_17,layer_Benessere_18]);
+        resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_9,layer_Lavoro_10,layer_Diritti_11,layer_Connessioni_12,layer_Parco_13,layer_Clima_14,layer_Sport_15,layer_Sapere_16,layer_FabbricaAlta_17,layer_Benessere_18,layer_centroids_quartieri_19]);
         map.on("zoomend", function(){
-            resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_9,layer_Lavoro_10,layer_Diritti_11,layer_Connessioni_12,layer_Parco_13,layer_Clima_14,layer_Sport_15,layer_Sapere_16,layer_FabbricaAlta_17,layer_Benessere_18]);
+            resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_9,layer_Lavoro_10,layer_Diritti_11,layer_Connessioni_12,layer_Parco_13,layer_Clima_14,layer_Sport_15,layer_Sapere_16,layer_FabbricaAlta_17,layer_Benessere_18,layer_centroids_quartieri_19]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_9,layer_Lavoro_10,layer_Diritti_11,layer_Connessioni_12,layer_Parco_13,layer_Clima_14,layer_Sport_15,layer_Sapere_16,layer_FabbricaAlta_17,layer_Benessere_18]);
+            resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_9,layer_Lavoro_10,layer_Diritti_11,layer_Connessioni_12,layer_Parco_13,layer_Clima_14,layer_Sport_15,layer_Sapere_16,layer_FabbricaAlta_17,layer_Benessere_18,layer_centroids_quartieri_19]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_9,layer_Lavoro_10,layer_Diritti_11,layer_Connessioni_12,layer_Parco_13,layer_Clima_14,layer_Sport_15,layer_Sapere_16,layer_FabbricaAlta_17,layer_Benessere_18]);
+            resetLabels([layer_trento_3,layer_vicenza_4,layer_Quartieri_9,layer_Lavoro_10,layer_Diritti_11,layer_Connessioni_12,layer_Parco_13,layer_Clima_14,layer_Sport_15,layer_Sapere_16,layer_FabbricaAlta_17,layer_Benessere_18,layer_centroids_quartieri_19]);
         });
         </script>
     </body>
